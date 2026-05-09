@@ -55,6 +55,8 @@ export function Projects() {
     },
   ];
 
+  const visibleProjects = projects.slice(0, 3);
+
   return (
     <section id="proyectos" className="py-24 relative" ref={ref}>
       {/* Background */}
@@ -81,81 +83,89 @@ export function Projects() {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group"
-            >
-              <div className="glass rounded-2xl border border-border/50 overflow-hidden hover:border-primary/30 transition-all duration-500">
-                {/* Project Preview */}
-                <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${project.color}`}>
-                  {project.video ? (
-                    <video 
-                      src={project.video} 
-                      autoPlay 
-                      muted 
-                      loop 
-                      playsInline 
-                      className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                    />
-                  ) : (
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                    />
-                  )}
-                  
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(220,80,80,0.1),transparent_70%)]" />
-                </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {visibleProjects.length > 0 ? (
+            visibleProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="glass rounded-2xl border border-border/50 overflow-hidden hover:border-primary/30 transition-all duration-500 h-full flex flex-col">
+                  {/* Project Preview */}
+                  <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${project.color}`}>
+                    {project.video ? (
+                      <video 
+                        src={project.video} 
+                        autoPlay 
+                        muted 
+                        loop 
+                        playsInline 
+                        className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                      />
+                    ) : (
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                      />
+                    )}
+                    
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(220,80,80,0.1),transparent_70%)]" />
+                  </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-1">
+                      {project.description}
+                    </p>
 
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.techs.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20"
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.techs.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-3">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 border-border hover:border-primary/50 hover:bg-primary/5"
                       >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex gap-3">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex-1 border-border hover:border-primary/50 hover:bg-primary/5"
-                    >
-                      <Github size={16} className="mr-2" />
-                      GitHub
-                    </Button>
-                    <Button
-                      size="sm"
-                      className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
-                    >
-                      <ExternalLink size={16} className="mr-2" />
-                      Demo
-                    </Button>
+                        <Github size={16} className="mr-2" />
+                        GitHub
+                      </Button>
+                      <Button
+                        size="sm"
+                        className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        Demo
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))
+          ) : (
+            <div className="col-span-full py-20 text-center glass rounded-2xl border border-dashed border-border/50">
+              <p className="text-muted-foreground text-lg">
+                Próximamente más proyectos...
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>

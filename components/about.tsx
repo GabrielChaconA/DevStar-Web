@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Target, Eye, Heart, Code2, Palette, Server } from "lucide-react";
+import React, { useRef, useState } from "react";
+import { Target, Eye, Heart, Code2, Palette, Server, Github } from "lucide-react";
 
 const values = [
   {
@@ -28,30 +28,58 @@ const values = [
 
 const team = [
   {
-    name: "Gabo",
+    name: "Gabriel Chacón",
     role: "Project Manager & Backend Lead",
     description:
       "Lidera proyectos con visión estratégica y expertise técnico en arquitecturas backend robustas.",
     icon: Server,
-    techs: ["Laravel", "Node.js", "MySQL"],
+    techs: ["Python", "Java", "JavaScript", "PostgreSQL", "MariaDB", "SQL Server", "MongoDB"],
+    github: "https://github.com/GabrielChaconA",
+    image: "/team/gabo.jpg",
   },
   {
-    name: "Isra",
+    name: "Israel Ramírez",
     role: "Frontend Developer & UI Designer",
     description:
       "Crea interfaces elegantes y experiencias de usuario memorables con atención al detalle.",
     icon: Palette,
-    techs: ["Vue.js", "React", "Tailwind"],
+    techs: ["Python", "Java", "JavaScript", "HTML", "CSS"],
+    github: "https://github.com/IsraelRamirezMorales",
+    image: "/team/isra.jpg",
   },
   {
-    name: "André",
+    name: "André García",
     role: "Backend Developer & Technical Advisor",
     description:
       "Aporta soluciones técnicas innovadoras y arquitecturas escalables para proyectos complejos.",
     icon: Code2,
-    techs: ["PHP", "Docker", "APIs"],
+    techs: ["Python", "Java", "JavaScript", "HTML", "CSS"],
+    github: "https://github.com/NestorGXD",
+    image: "/team/andre.jpg",
   },
 ];
+
+function MemberAvatar({ member }: { member: any }) {
+  const [error, setError] = React.useState(false);
+
+  return (
+    <div className="relative w-24 h-24 mx-auto mb-6">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary to-wine rounded-2xl rotate-6 group-hover:rotate-12 transition-transform" />
+      <div className="relative w-full h-full bg-secondary rounded-2xl flex items-center justify-center overflow-hidden">
+        {!error ? (
+          <img
+            src={member.image}
+            alt={member.name}
+            className="w-full h-full object-cover"
+            onError={() => setError(true)}
+          />
+        ) : (
+          <member.icon size={36} className="text-primary" />
+        )}
+      </div>
+    </div>
+  );
+}
 
 export function About() {
   const ref = useRef(null);
@@ -130,14 +158,9 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
               className="group"
             >
-              <div className="glass rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-300 text-center h-full">
+              <div className="glass rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-300 text-center h-full flex flex-col">
                 {/* Avatar */}
-                <div className="relative w-24 h-24 mx-auto mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary to-wine rounded-2xl rotate-6 group-hover:rotate-12 transition-transform" />
-                  <div className="relative w-full h-full bg-secondary rounded-2xl flex items-center justify-center">
-                    <member.icon size={36} className="text-primary" />
-                  </div>
-                </div>
+                <MemberAvatar member={member} />
 
                 <h4 className="text-xl font-semibold text-foreground mb-1">
                   {member.name}
@@ -148,7 +171,7 @@ export function About() {
                 </p>
 
                 {/* Tech badges */}
-                <div className="flex flex-wrap justify-center gap-2">
+                <div className="flex flex-wrap justify-center gap-2 mb-6">
                   {member.techs.map((tech) => (
                     <span
                       key={tech}
@@ -157,6 +180,18 @@ export function About() {
                       {tech}
                     </span>
                   ))}
+                </div>
+
+                {/* Social links */}
+                <div className="mt-auto pt-4 border-t border-border/50 flex justify-center gap-4">
+                  <a
+                    href={member.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-secondary/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                  >
+                    <Github size={20} />
+                  </a>
                 </div>
               </div>
             </motion.div>

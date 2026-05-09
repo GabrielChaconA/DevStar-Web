@@ -2,33 +2,33 @@
 
 import { motion, useInView } from "framer-motion";
 import React, { useRef, useState } from "react";
-import { Mail, MessageCircle, Linkedin, Github, Send, Sparkles } from "lucide-react";
+import { Mail, MessageCircle, Linkedin, Facebook, Send, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    value: "contacto@devstarlabs.com",
-    href: "mailto:contacto@devstarlabs.com",
+    value: "gabochack7@gmail.com",
+    href: "mailto:gabochack7@gmail.com",
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
-    value: "+52 123 456 7890",
-    href: "https://wa.me/521234567890",
+    value: "+52 442 193 2657",
+    href: "https://wa.me/524421932657",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
     value: "DevStar Labs",
-    href: "https://linkedin.com/company/devstarlabs",
+    href: "https://www.linkedin.com/company/116010531/",
   },
   {
-    icon: Github,
-    label: "GitHub",
-    value: "@devstarlabs",
-    href: "https://github.com/devstarlabs",
+    icon: Facebook,
+    label: "Facebook",
+    value: "DevStar Labs",
+    href: "https://www.facebook.com/profile.php?id=61589430981129",
   },
 ];
 

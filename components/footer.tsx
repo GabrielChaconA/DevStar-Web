@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Facebook, Linkedin, Mail, Heart } from "lucide-react";
 
 const quickLinks = [
   { href: "#inicio", label: "Inicio" },
@@ -13,13 +13,17 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/devstarlabs", label: "GitHub" },
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/profile.php?id=61589430981129",
+    label: "Facebook",
+  },
   {
     icon: Linkedin,
-    href: "https://linkedin.com/company/devstarlabs",
+    href: "https://www.linkedin.com/company/116010531/",
     label: "LinkedIn",
   },
-  { icon: Mail, href: "mailto:contacto@devstarlabs.com", label: "Email" },
+  { icon: Mail, href: "mailto:gabochack7@gmail.com", label: "Email" },
 ];
 
 export function Footer() {
@@ -96,7 +100,7 @@ export function Footer() {
               ))}
             </div>
             <p className="text-muted-foreground text-sm">
-              contacto@devstarlabs.com
+              gabochack7@gmail.com
             </p>
           </motion.div>
         </div>
