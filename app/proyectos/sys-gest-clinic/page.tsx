@@ -13,6 +13,7 @@ import {
   Github,
   Check,
   Copy,
+  ExternalLink,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -105,16 +106,23 @@ export default function SysGestClinicPage() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex justify-center gap-4 mt-8"
+            className="flex flex-wrap justify-center gap-4 mt-8"
           >
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold" asChild>
+              <a href="https://devstar-web-1.onrender.com" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="size-4 mr-2" />
+                Ver Demo en Vivo
+              </a>
+            </Button>
+            <Button variant="outline" className="border-border hover:border-primary/50 text-foreground" asChild>
               <a href="https://github.com/IsraelRamirezMorales/SYS-GEST-CLINIC.git" target="_blank" rel="noopener noreferrer">
                 <Github className="size-4 mr-2" />
                 Repositorio en GitHub
               </a>
             </Button>
-            <Button variant="outline" className="border-border hover:border-primary/50" asChild>
+            <Button variant="ghost" className="hover:bg-secondary/50 text-muted-foreground hover:text-foreground" asChild>
               <Link href="/#proyectos">
+                <ArrowLeft className="size-4 mr-2" />
                 Volver a Proyectos
               </Link>
             </Button>
