@@ -121,7 +121,7 @@ export function About() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="glass rounded-2xl p-8 border border-border/50 h-full hover:border-primary/30 transition-all duration-300 gradient-border">
+              <div className="glass rounded-2xl p-8 border border-border h-full hover:border-primary/50 transition-all duration-300 gradient-border">
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <value.icon size={28} className="text-primary" />
                 </div>
@@ -158,7 +158,7 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
               className="group"
             >
-              <div className="glass rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-300 text-center h-full flex flex-col">
+              <div className="glass rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-300 text-center h-full flex flex-col">
                 {/* Avatar */}
                 <MemberAvatar member={member} />
 
@@ -183,7 +183,7 @@ export function About() {
                 </div>
 
                 {/* Social links */}
-                <div className="mt-auto pt-4 border-t border-border/50 flex justify-center gap-4">
+                <div className="mt-auto pt-4 border-t border-border flex justify-center gap-4">
                   <a
                     href={member.github}
                     target="_blank"

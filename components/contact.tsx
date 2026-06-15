@@ -88,7 +88,7 @@ export function Contact() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="group flex items-center gap-4 p-6 rounded-2xl bg-secondary/30 border border-border/50 hover:border-primary/30 hover:bg-secondary/50 transition-all duration-300"
+                className="group flex items-center gap-4 p-6 rounded-2xl bg-secondary/30 border border-border hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300"
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:glow-red-sm transition-all">
                   <link.icon size={28} className="text-primary" />

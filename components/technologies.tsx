@@ -114,7 +114,7 @@ export function Technologies() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className="glass rounded-2xl p-6 border border-border/50 hover:border-primary/30 transition-all duration-300 text-center h-full flex flex-col items-center justify-center">
+              <div className="glass rounded-2xl p-6 border border-border hover:border-primary/50 transition-all duration-300 text-center h-full flex flex-col items-center justify-center">
                 <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-4 text-primary group-hover:bg-primary/20 group-hover:glow-red-sm transition-all duration-300">
                   {tech.icon}
                 </div>
