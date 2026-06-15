@@ -21,7 +21,7 @@
   --accent-foreground: oklch(0.98 0.01 15);
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.98 0.01 15);
-  --border: oklch(0.22 0.025 15);
+  --border: oklch(0.95 0.01 15 / 0.35);        /* Brighter white glassmorphic border */
   --input: oklch(0.18 0.02 15);
   --ring: oklch(0.55 0.2 15);
   --chart-1: oklch(0.55 0.2 15);

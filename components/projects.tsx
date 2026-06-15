@@ -18,44 +18,19 @@ export function Projects() {
 
   const projects = [
     {
-      title: "Sistema de Reservaciones",
+      title: "SYS-GEST-CLINIC",
       description:
-        "Plataforma completa de gestión de reservas con calendario interactivo, notificaciones automáticas y panel de administración.",
-      techs: ["Laravel", "Vue.js", "MySQL", "Tailwind"],
-      color: "from-primary/20 to-wine/20",
-      image: "/projects/reservaciones.png",
-      video: null,
-    },
-    {
-      title: "Catálogo de Películas",
-      description:
-        "Aplicación web para explorar y descubrir películas con filtros avanzados, reseñas y sistema de favoritos.",
-      techs: ["React", "Node.js", "MongoDB", "API REST"],
+        "Sistema premium de gestión y control de citas clínicas, expedientes de pacientes y Business Intelligence (BI) optimizado para clínicas de rehabilitación.",
+      techs: ["React", "FastAPI", "PostgreSQL", "Docker"],
       color: "from-wine/20 to-primary/20",
-      image: "/projects/peliculas.png",
+      image: "/respository images/Gestion clinica/logoSysGesCli.jpg",
       video: null,
-    },
-    {
-      title: "Dashboard Administrativo",
-      description:
-        "Panel de control empresarial con analíticas en tiempo real, gestión de usuarios y reportes automatizados.",
-      techs: ["Next.js", "PostgreSQL", "Charts", "Auth"],
-      color: "from-primary/20 to-wine/20",
-      image: "/projects/dashboard.png",
-      video: "/projects/dashboard-demo.mp4",
-    },
-    {
-      title: "Página para Negocio Local",
-      description:
-        "Sitio web profesional para negocio local con catálogo de productos, formulario de contacto y integración con redes sociales.",
-      techs: ["Vue.js", "Laravel", "Stripe", "SEO"],
-      color: "from-wine/20 to-primary/20",
-      image: "/projects/negocio.png",
-      video: null,
+      github: "https://github.com/IsraelRamirezMorales/SYS-GEST-CLINIC.git",
+      demo: "/proyectos/sys-gest-clinic",
     },
   ];
 
-  const visibleProjects = projects.slice(0, 3);
+  const visibleProjects = projects;
 
   return (
     <section id="proyectos" className="py-24 relative" ref={ref}>
@@ -85,80 +60,114 @@ export function Projects() {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {visibleProjects.length > 0 ? (
-            visibleProjects.map((project, index) => (
+            <>
+              {visibleProjects.map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group"
+                >
+                  <div className="glass rounded-2xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-500 h-full flex flex-col">
+                    {/* Project Preview */}
+                    <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${project.color}`}>
+                      {project.video ? (
+                        <video 
+                          src={project.video} 
+                          autoPlay 
+                          muted 
+                          loop 
+                          playsInline 
+                          className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                        />
+                      ) : (
+                        <img 
+                          src={project.image} 
+                          alt={project.title}
+                          className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                        />
+                      )}
+                      
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(220,80,80,0.1),transparent_70%)]" />
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6 flex flex-col flex-1">
+                      <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-1">
+                        {project.description}
+                      </p>
+
+                      {/* Tech Stack */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.techs.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex gap-3">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex-1 border-border hover:border-primary/50 hover:bg-primary/5"
+                          asChild
+                        >
+                          <a
+                            href={project.github || "#"}
+                            target={project.github && project.github !== "#" ? "_blank" : "_self"}
+                            rel="noopener noreferrer"
+                          >
+                            <Github size={16} className="mr-2" />
+                            GitHub
+                          </a>
+                        </Button>
+                        <Button
+                          size="sm"
+                          className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
+                          asChild
+                        >
+                          <a
+                            href={project.demo || "#"}
+                            target={project.demo && project.demo.startsWith("http") ? "_blank" : "_self"}
+                            rel="noopener noreferrer"
+                          >
+                            <ExternalLink size={16} className="mr-2" />
+                            Demo
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+
+              {/* Next Project Placeholder Card */}
               <motion.div
-                key={project.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group"
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="glass rounded-2xl border border-dashed border-border hover:border-primary/50 transition-all duration-500 h-full flex flex-col items-center justify-center p-8 text-center min-h-[350px]"
               >
-                <div className="glass rounded-2xl border border-border/50 overflow-hidden hover:border-primary/30 transition-all duration-500 h-full flex flex-col">
-                  {/* Project Preview */}
-                  <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${project.color}`}>
-                    {project.video ? (
-                      <video 
-                        src={project.video} 
-                        autoPlay 
-                        muted 
-                        loop 
-                        playsInline 
-                        className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                      />
-                    ) : (
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                      />
-                    )}
-                    
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(220,80,80,0.1),transparent_70%)]" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-1">
-                      {project.description}
-                    </p>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.techs.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex gap-3">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 border-border hover:border-primary/50 hover:bg-primary/5"
-                      >
-                        <Github size={16} className="mr-2" />
-                        GitHub
-                      </Button>
-                      <Button
-                        size="sm"
-                        className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
-                      >
-                        <ExternalLink size={16} className="mr-2" />
-                        Demo
-                      </Button>
-                    </div>
-                  </div>
+                <div className="size-12 rounded-full border border-dashed border-muted-foreground/30 flex items-center justify-center text-muted-foreground mb-4 bg-secondary/5">
+                  <span className="text-xl font-light">+</span>
                 </div>
+                <h4 className="text-xl font-bold mb-2 text-foreground">
+                  Next Project
+                </h4>
+                <p className="text-muted-foreground text-sm leading-relaxed max-w-[240px]">
+                  Planning and designing the next major software project. Stay tuned!
+                </p>
               </motion.div>
-            ))
+            </>
           ) : (
             <div className="col-span-full py-20 text-center glass rounded-2xl border border-dashed border-border/50">
               <p className="text-muted-foreground text-lg">

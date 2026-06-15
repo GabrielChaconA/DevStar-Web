@@ -77,7 +77,7 @@ export function Services() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="glass rounded-2xl p-8 border border-border/50 h-full hover:border-primary/30 transition-all duration-500 overflow-hidden">
+              <div className="glass rounded-2xl p-8 border border-border h-full hover:border-primary/50 transition-all duration-500 overflow-hidden">
                 {/* Hover gradient effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-wine/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -100,7 +100,7 @@ export function Services() {
                     {service.features.map((feature) => (
                       <span
                         key={feature}
-                        className="px-3 py-1 text-sm rounded-full bg-secondary/50 text-muted-foreground border border-border/50"
+                        className="px-3 py-1 text-sm rounded-full bg-secondary/50 text-muted-foreground border border-border"
                       >
                         {feature}
                       </span>

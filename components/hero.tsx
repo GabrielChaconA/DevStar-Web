@@ -29,6 +29,9 @@ export function Hero() {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-wine/10 rounded-full blur-3xl" />
       
+      {/* Red-Black-White Background Gradient covering the entire text/content section */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-black to-white/10 pointer-events-none" />
+      
       <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badges */}
@@ -139,7 +142,7 @@ export function Hero() {
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-wine/20 to-primary/20 rounded-2xl blur-2xl" />
             
             {/* Dashboard Mockup */}
-            <div className="relative glass rounded-2xl border border-border/50 p-6 gradient-border">
+            <div className="relative glass rounded-2xl border border-border p-6 gradient-border">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-primary/60" />
                 <div className="w-3 h-3 rounded-full bg-wine/60" />

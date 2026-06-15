@@ -36,7 +36,7 @@ export function Navbar() {
         isScrolled ? "top-2" : "top-4"
       }`}
     >
-      <nav className="glass rounded-2xl border border-border/50 px-6 py-3">
+      <nav className="glass rounded-2xl border border-border px-6 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-2 group">
