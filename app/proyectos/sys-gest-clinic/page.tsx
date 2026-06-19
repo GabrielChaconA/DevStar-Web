@@ -14,6 +14,9 @@ import {
   Check,
   Copy,
   ExternalLink,
+  AlertTriangle,
+  FileText,
+  Layers,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -22,19 +25,51 @@ export default function SysGestClinicPage() {
   const images = [
     {
       src: "/respository images/Gestion clinica/LOGIN.png",
-      alt: "Pantalla de Login - Acceso seguro y minimalista oscuro.",
+      alt: "Acceso Seguro (Login) - Autenticación con cifrado Bcrypt y roles.",
     },
     {
       src: "/respository images/Gestion clinica/HOME PAGE.png",
-      alt: "Panel Principal - Interfaz Mobile First.",
+      alt: "Panel Principal (Home Page) - Vista general rápida para terapeutas.",
     },
     {
       src: "/respository images/Gestion clinica/CALENDARIO.png",
-      alt: "Calendario Clínico Interactivo - Días marcados y agendas por terapeuta.",
+      alt: "Calendario de Citas - Prevención automática de empalme de horarios.",
     },
     {
       src: "/respository images/Gestion clinica/REGISTROS.png",
-      alt: "Estadísticas y Reportes - Módulo de Business Intelligence en tiempo real.",
+      alt: "Business Intelligence (BI) - Reportes de rendimiento y pacientes.",
+    },
+    {
+      src: "/respository images/Gestion clinica/Agregar un paciente.png",
+      alt: "Registro de Pacientes - Formulario interactivo con validaciones.",
+    },
+    {
+      src: "/respository images/Gestion clinica/vista de todos mis pacientes.png",
+      alt: "Búsqueda de Pacientes - Listado y filtrado global de expedientes.",
+    },
+    {
+      src: "/respository images/Gestion clinica/mis pacientes.png",
+      alt: "Mis Pacientes - Listado filtrado del especialista autenticado.",
+    },
+    {
+      src: "/respository images/Gestion clinica/Notas iniciales del paciente.png",
+      alt: "Historial Clínico - Registro de notas de evolución y estado del paciente.",
+    },
+    {
+      src: "/respository images/Gestion clinica/Cambiar foto de perfil.png",
+      alt: "Perfil del Terapeuta - Actualización de foto de perfil y datos.",
+    },
+    {
+      src: "/respository images/Gestion clinica/manejo de errores.png",
+      alt: "Control de Errores - Validación visual en tiempo real de colisión de citas.",
+    },
+    {
+      src: "/respository images/Gestion clinica/ventana emergente de pdf.png",
+      alt: "Configurador de PDF - Configuración previa de los datos a exportar.",
+    },
+    {
+      src: "/respository images/Gestion clinica/pdf exportado.png",
+      alt: "PDF Generado - Documento profesional listo para imprimir o enviar.",
     },
   ];
 
@@ -242,6 +277,99 @@ export default function SysGestClinicPage() {
               </div>
             </div>
 
+            {/* Ventanas e Interfaces del Sistema */}
+            <div className="glass border border-border rounded-3xl p-8 space-y-6">
+              <h3 className="text-2xl font-bold flex items-center gap-3 border-b border-border/40 pb-4">
+                <Layers className="text-primary size-6" />
+                Ventanas e Interfaces del Sistema
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                El sistema cuenta con una arquitectura de vistas diseñada bajo la filosofía <strong>Mobile-First</strong>, permitiendo a los terapeutas gestionar la clínica de forma ágil desde cualquier dispositivo móvil o de escritorio:
+              </p>
+              <div className="grid md:grid-cols-2 gap-4 pt-2">
+                <div className="border border-border/40 rounded-xl p-4 bg-secondary/5 hover:bg-secondary/10 transition-colors">
+                  <h4 className="font-semibold text-sm text-foreground mb-1">Acceso &amp; Perfiles</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Vistas de <strong>Login</strong> de alta seguridad y panel de <strong>Mi Perfil</strong> para cambiar foto y datos personales.
+                  </p>
+                </div>
+                <div className="border border-border/40 rounded-xl p-4 bg-secondary/5 hover:bg-secondary/10 transition-colors">
+                  <h4 className="font-semibold text-sm text-foreground mb-1">Panel de Control &amp; Agenda</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    <strong>Dashboard / Home Page</strong> interactivo y <strong>Calendario Clínico</strong> dinámico por terapeuta.
+                  </p>
+                </div>
+                <div className="border border-border/40 rounded-xl p-4 bg-secondary/5 hover:bg-secondary/10 transition-colors">
+                  <h4 className="font-semibold text-sm text-foreground mb-1">Búsqueda &amp; Listado</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Vista global de <strong>Todos mis pacientes</strong> con filtros avanzados y vista personalizada de <strong>Mis pacientes</strong>.
+                  </p>
+                </div>
+                <div className="border border-border/40 rounded-xl p-4 bg-secondary/5 hover:bg-secondary/10 transition-colors">
+                  <h4 className="font-semibold text-sm text-foreground mb-1">Expedientes &amp; Fichas</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Ventanas de <strong>Agregar Paciente</strong> y vista detallada de <strong>Notas Iniciales</strong> para el historial clínico.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Manejo de Errores */}
+            <div className="glass border border-border rounded-3xl p-8 space-y-6">
+              <h3 className="text-2xl font-bold flex items-center gap-3 border-b border-border/40 pb-4">
+                <AlertTriangle className="text-primary size-6" />
+                Manejo de Errores y Resiliencia
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Para garantizar la integridad de los datos y evitar confusiones operativas en la clínica, se implementó un control de errores robusto en tiempo real:
+              </p>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="text-primary size-5 shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Validación de Colisiones:</strong> El backend de FastAPI y triggers en PostgreSQL impiden empalmar citas de un mismo terapeuta o en una misma sala.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="text-primary size-5 shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Notificaciones Visuales:</strong> Como se observa en la captura <em>Manejo de Errores</em>, el sistema presenta alertas emergentes interactivas con detalles de validaciones de campos y accesos.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="text-primary size-5 shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Integridad Relacional:</strong> Restricciones automáticas de base de datos impiden eliminar pacientes con adeudos o citas activas sin la debida confirmación administrativa.
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Exportación a PDF */}
+            <div className="glass border border-border rounded-3xl p-8 space-y-6">
+              <h3 className="text-2xl font-bold flex items-center gap-3 border-b border-border/40 pb-4">
+                <FileText className="text-primary size-6" />
+                Módulo de Exportación a PDF
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                El sistema facilita el intercambio de información médica y administrativa con aseguradoras y pacientes mediante un flujo de generación de documentos interactivo:
+              </p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="border border-border/40 rounded-xl p-4 bg-secondary/5">
+                  <h4 className="font-semibold text-sm text-foreground mb-1">Configuración Previa</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Al solicitar un reporte, se despliega una <strong>ventana emergente</strong> interactiva para seleccionar qué notas de evolución e historial clínico incluir.
+                  </p>
+                </div>
+                <div className="border border-border/40 rounded-xl p-4 bg-secondary/5">
+                  <h4 className="font-semibold text-sm text-foreground mb-1">Formato Formal Limpio</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    El backend genera un documento <strong>PDF formal</strong> que incluye la marca del consultorio, detalles del paciente, notas de evolución y firmas correspondientes.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Developers / Team */}
             <div className="glass border border-border rounded-3xl p-8 space-y-6">
               <h3 className="text-2xl font-bold flex items-center gap-3 border-b border-border/40 pb-4">
@@ -346,7 +474,7 @@ export default function SysGestClinicPage() {
                 <div>│   └── <span className="text-amber-500 font-bold">database/</span> <span className="text-[#5c6370] italic">// Esquemas y SQL seeds</span></div>
                 <div>├── <span className="text-amber-500 font-bold">frontend/</span> <span className="text-[#5c6370] italic">// Interfaz React</span></div>
                 <div>│   ├── <span className="text-amber-500 font-bold">src/</span> <span className="text-[#5c6370] italic">// Vistas y componentes</span></div>
-                <div>│   └── <span class="text-amber-500 font-bold">public/</span> <span class="text-[#5c6370] italic">// Recursos estáticos</span></div>
+                <div>│   └── <span className="text-amber-500 font-bold">public/</span> <span className="text-[#5c6370] italic">// Recursos estáticos</span></div>
                 <div>├── <span className="text-blue-400">docker-compose.yml</span></div>
                 <div>└── <span className="text-blue-400">README.md</span></div>
               </div>
