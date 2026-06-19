@@ -7,7 +7,6 @@ import {
   Film,
   LayoutDashboard,
   Store,
-  ExternalLink,
   Github,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,7 +25,8 @@ export function Projects() {
       image: "/respository images/Gestion clinica/logoSysGesCli.jpg",
       video: null,
       github: "https://github.com/IsraelRamirezMorales/SYS-GEST-CLINIC.git",
-      demo: "/proyectos/sys-gest-clinic",
+      demo: "https://devstar-web-1.onrender.com",
+      details: "/proyectos/sys-gest-clinic",
     },
   ];
 
@@ -114,34 +114,29 @@ export function Projects() {
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="flex gap-3">
+                      <div className="flex flex-col gap-2 mt-auto">
+                        <Button
+                          size="sm"
+                          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                          asChild
+                        >
+                          <a href={project.details || "#"}>
+                            Show details
+                          </a>
+                        </Button>
                         <Button
                           variant="outline"
                           size="sm"
-                          className="flex-1 border-border hover:border-primary/50 hover:bg-primary/5"
+                          className="w-full border-border hover:border-primary/50 hover:bg-primary/5 text-xs font-medium"
                           asChild
                         >
                           <a
                             href={project.github || "#"}
-                            target={project.github && project.github !== "#" ? "_blank" : "_self"}
+                            target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <Github size={16} className="mr-2" />
+                            <Github size={14} className="mr-1.5" />
                             GitHub
-                          </a>
-                        </Button>
-                        <Button
-                          size="sm"
-                          className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
-                          asChild
-                        >
-                          <a
-                            href={project.demo || "#"}
-                            target={project.demo && project.demo.startsWith("http") ? "_blank" : "_self"}
-                            rel="noopener noreferrer"
-                          >
-                            <ExternalLink size={16} className="mr-2" />
-                            Demo
                           </a>
                         </Button>
                       </div>
