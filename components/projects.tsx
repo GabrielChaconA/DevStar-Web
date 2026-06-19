@@ -7,7 +7,6 @@ import {
   Film,
   LayoutDashboard,
   Store,
-  ExternalLink,
   Github,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -121,42 +120,25 @@ export function Projects() {
                           className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                           asChild
                         >
+                          <a href={project.details || "#"}>
+                            Show details
+                          </a>
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full border-border hover:border-primary/50 hover:bg-primary/5 text-xs font-medium"
+                          asChild
+                        >
                           <a
-                            href={project.demo || "#"}
+                            href={project.github || "#"}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <ExternalLink size={16} className="mr-2" />
-                            Demo en Vivo
+                            <Github size={14} className="mr-1.5" />
+                            GitHub
                           </a>
                         </Button>
-                        <div className="flex gap-2">
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="flex-1 border-border hover:border-primary/50 hover:bg-primary/5 text-xs font-medium"
-                            asChild
-                          >
-                            <a href={project.details || "#"}>
-                              Ver Detalles
-                            </a>
-                          </Button>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="flex-1 border-border hover:border-primary/50 hover:bg-primary/5 text-xs font-medium"
-                            asChild
-                          >
-                            <a
-                              href={project.github || "#"}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Github size={14} className="mr-1.5" />
-                              GitHub
-                            </a>
-                          </Button>
-                        </div>
                       </div>
                     </div>
                   </div>

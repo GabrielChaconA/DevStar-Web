@@ -13,7 +13,6 @@ import {
   Github,
   Check,
   Copy,
-  ExternalLink,
   AlertTriangle,
   FileText,
   Layers,
@@ -143,13 +142,7 @@ export default function SysGestClinicPage() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-wrap justify-center gap-4 mt-8"
           >
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold" asChild>
-              <a href="https://devstar-web-1.onrender.com" target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="size-4 mr-2" />
-                Ver Demo en Vivo
-              </a>
-            </Button>
-            <Button variant="outline" className="border-border hover:border-primary/50 text-foreground" asChild>
+            <Button variant="outline" className="border-border hover:border-primary/50 text-foreground font-semibold" asChild>
               <a href="https://github.com/IsraelRamirezMorales/SYS-GEST-CLINIC.git" target="_blank" rel="noopener noreferrer">
                 <Github className="size-4 mr-2" />
                 Repositorio en GitHub
