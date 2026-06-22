@@ -71,7 +71,7 @@ export function Projects() {
                 >
                   <div className="glass rounded-2xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-500 h-full flex flex-col">
                     {/* Project Preview */}
-                    <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${project.color}`}>
+                    <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${project.color} flex items-center justify-center p-4`}>
                       {project.video ? (
                         <video 
                           src={project.video} 
@@ -82,14 +82,22 @@ export function Projects() {
                           className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                         />
                       ) : (
-                        <img 
-                          src={project.image} 
-                          alt={project.title}
-                          className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                        />
+                        <>
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="max-w-full max-h-full object-contain rounded-lg shadow-lg group-hover:scale-105 transition-all duration-700 relative z-10"
+                          />
+                          {/* Blurred background for portrait images */}
+                          <img 
+                            src={project.image} 
+                            alt=""
+                            className="absolute inset-0 w-full h-full object-cover blur-xl opacity-40 scale-110 pointer-events-none"
+                          />
+                        </>
                       )}
                       
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(220,80,80,0.1),transparent_70%)]" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(220,80,80,0.1),transparent_70%)] pointer-events-none" />
                     </div>
 
                     {/* Content */}
@@ -121,7 +129,7 @@ export function Projects() {
                           asChild
                         >
                           <a href={project.details || "#"}>
-                            Show details
+                            Ver detalles
                           </a>
                         </Button>
                         <Button
